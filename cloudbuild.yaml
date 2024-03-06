@@ -1,6 +1,12 @@
 steps:
-  - name: 'gcr.io/cloud-builders/docker'
-      args: ['build', '-t', 'us-east1-docker.pkg.dev/cloudside-academy/test-demo/test-app', '.']
+#########################################################
+# Building the docker image
+#########################################################
 
-  - name: 'gcr.io/cloud-builders/docker'
-      args: ['push', 'us-east1-docker.pkg.dev/cloudside-academy/test-demo/test-app']
+#Building the docker image for casim application
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t','us-east1-docker.pkg.dev/cloudside-academy/test-demo/test-app', '.' ]
+
+#Pushing the image to GCR
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "us-east1-docker.pkg.dev/cloudside-academy/test-demo/test-app"]
